@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event time</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.timing_event{
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    background: #2f363e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+/*................................. dept_desc css starts................... */
+
+.dept_desc{
+    position: relative;
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.h3_element{
+ color: #fff;
+ font-size: 3rem;
+ letter-spacing: .1rem;
+}
+
+.h3_element .of{
+    font-size: 3.3rem;
+    color: #ff0000;
+}
+
+.IT{
+    font-size: 2.6rem;
+    text-transform: capitalize;
+    color: #fff;
+}
+
+.it{
+    color: #ff0000;
+    font-size: 2.9rem;
+}
+
+.presents{
+    display: flex;
+    gap: 20px;
+    color: #fff;
+    font-size: 2.2rem;
+}
+
+.p{
+    color: #ff0000;
+    font-size: 2.9rem;
+}
+
+.on_date{
+    display: flex;
+    gap: 10px;
+    color: #fff;
+    font-size: 1.3rem;
+}
+.o{
+    font-size: 2rem;
+    color: #ff0000;
+}
+
+/*................................. dept_desc css ends................... */
+
+/*.................................. time css starts .....................*/
+
+.countDown_box {
+    margin-top: 75px;
+}
+
+.time{
+    display: flex;
+    gap: 30px;
+}
+
+.time .circle{
+    position: relative;
+    width: 110px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.time .circle svg{
+    position: relative;
+    width: 110px;
+    height: 110px;
+    transform: rotate(275deg);
+}
+
+.time .circle svg circle{
+    width: 100%;
+    height: 100%;
+    fill: transparent;
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke: #282828;
+    transform: translate(5px ,5px);
+}
+
+.time .circle svg circle:nth-child(2) {
+    stroke: var(--clr);
+    stroke-dasharray: 305;
+    stroke-dashoffset: 305;
+}
+
+.time .dhms{
+    position: absolute;
+    text-align: center;
+    font-weight: 500;
+    color: #fff;
+    font-size: 1.5em;
+}
+
+.time .dhms .dhms_n{
+    position: absolute;
+    transform: translateX(-50%) translateY(-10%);
+    font-size: 0.4em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.time .dots{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 1000;
+}
+
+.time .dots::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    width: 17px;
+    height: 17px;
+    background: var(--clr);
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--clr);
+}
+/*.................................. time css ends .......................*/
+
+
+/*.................................. query css starts .....................*/
+
+@media screen and (max-width:426px) {
+    .countDown_box {
+    margin-top: 115px;
+    }
+    .dept_desc {
+    position: relative;
+    width: 100vw;
+    height: 0vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+   }
+
+    .timing_event {
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    background: #2f363e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0px;
+   }
+
+
+    .h3_element {
+        color: #fff;
+        font-size: 1.5rem;
+        letter-spacing: .1rem;
+    }
+
+    .h3_element .of {
+        font-size: 2rem;
+        color: #ff0000;
+    }
+
+    .IT {
+        font-size: 1.4rem;
+        text-transform: capitalize;
+        color: #fff;
+    }
+
+    .it {
+        color: #ff0000;
+        font-size: 2rem;
+    }
+
+    .presents {
+        display: flex;
+        gap: 10px;
+        color: #fff;
+        font-size: 1.2rem;
+    }
+
+    .p {
+        color: #ff0000;
+        font-size: 2rem;
+    }
+
+    .on_date {
+        display: flex;
+        gap: 10px;
+        color: #fff;
+        font-size: .7rem;
+    }
+
+    .o {
+        font-size: 1.5rem;
+        color: #ff0000;
+    }
+
+    .time {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+   }
+}
+
+/*.................................. query css ends ......................*/
+
+@media screen and (max-width:769px){
+    .timing_event {
+        width: 100%;
+        min-height: 100vh;
+        padding: 20px;
+        background: #2f363e;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 85px;
+    }
+}
+
+
+@media screen and (max-width:1025px){
+    .timing_event {
+        width: 100%;
+        min-height: 100vh;
+        padding: 20px;
+        background: #2f363e;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 110px;
+    }
+}
+
+/* timeline */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font: normal 16px/1.5 'Halvetica neue';
+    background: #2f363e;
+    color: #fff;
+    overflow-x: hidden;
+    padding-bottom: 5px;
+}
+
+.timeline {
+    box-shadow: 0 25px 45px #0000001a;
+    backdrop-filter: blur(20px);
+    padding: 50px 0px;
+    margin: 2rem auto;
+    border-radius: 10px;
+    position: relative;
+}
+
+@keyframes zoomInOut{
+    0%,100%{
+        transform: scale(0.5);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+}
+
+.timeline .timeline_ul .timeline_li{
+    list-style: none;
+    position: relative;
+    width: 6px;
+    padding-top: 50px;
+    background-color: #ffffff17;
+    border: 2px solid #ffffff1a;
+    box-shadow: 0 25px 45px #0000001a;
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
+}
+
+.timeline .timeline_ul .timeline_li::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: inherit;
+    z-index: 1;
+}
+
+.timeline .timeline_ul .timeline_li .content{
+    position: relative;
+    bottom: 0;
+    width: 400px;
+    padding: 2em;
+    background: #fdc927;
+    box-shadow: 0px 0px 0px 6px #ffffff66;
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    color: #000;
+    margin: 1rem 0;
+}
+
+.timeline .timeline_ul .timeline_li .content::before{
+    content: '';
+    position: absolute;
+    bottom: 7px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.timeline .timeline_ul .timeline_li .content::after{
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    height: 100%;
+    left: 20%;
+    animation: zomInOut 8s linear infinite;
+}
+
+.timeline .timeline_ul .timeline_li:nth-child(odd) .content{
+    left: 45px;
+}
+
+.timeline .timeline_ul .timeline_li:nth-child(odd) .content::before{
+    left: -25px;
+    border-width: 10px 20px 10px 0px;
+    border-color: transparent #c62929 transparent transparent;
+}
+
+.timeline .timeline_ul .timeline_li:nth-child(even) .content{
+    left: -429px;
+}
+
+.timeline .timeline_ul .timeline_li:nth-child(even) .content::before {
+    right: -25px;
+    border-width: 10px 0px 10px 20px;
+    border-color: transparent  transparent transparent #20e3bc;
+}
+
+.timeline .timeline_ul .timeline_li .content .img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    padding: 10px;
+    background: #fdc927;
+    box-shadow: 0px 0px 0px 6px #ffffff66;
+    margin-top: -10rem;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.event_title{
+    display: block;
+    font-size: 1.2rem;
+    margin-top: -1rem;
+    float: right;
+    text-transform: uppercase;
+}
+
+.timeline .timeline_ul .timeline_li::after{
+    transition: background 0.5s ease-in-out;
+}
+
+
+.timeline .timeline_ul .timeline_li.in_view::after {
+        background-color: #cabc1b;
+}
+
+
+.timeline .timeline_ul .timeline_li .content{
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.timeline .timeline_ul .timeline_li:nth-child(odd) .content{
+    transform: translate3d(-200px, 0,0);
+}
+
+.timeline .timeline_ul .timeline_li:nth-child(even) .content{
+    transform: translate3d(-200px, 0,0);
+}
+
+.timeline .timeline_ul .timeline_li.in_view .content{
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+}
+
+.timeline_ul{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* ....................media query......................... */
+
+@media screen and (max-width:900px) {
+    .timeline .timeline_ul .timeline_li .content{
+        width: 250px;
+    }
+
+    .timeline .timeline_ul .timeline_li:nth-child(even) .content{
+        left: -290px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .timeline .timeline_ul .timeline_li {
+      left: 20px;
+    }
+
+    .timeline .timeline_ul .timeline_li .content{
+        width: calc(100vw - 91px);
+    }
+
+    .timeline .timeline_ul .timeline_li:nth-child(even) .content{
+        left: 45px;
+        border-width: 10px 20px 10px 0px;
+        border-color: transparent #20e3bc transparent transparent;
+    }
+
+    .timeline .timeline_ul .timeline_li:nth-child(even) .content::before{
+        left: -25px;
+        border-width: 10px 20px 10px 0px;
+         border-color: transparent #20e3bc transparent transparent;
+    }
+
+    @media screen and (max-width:430px) {
+        .timeline_ul {
+        position: absolute;
+        left: 10px;
+    }
+        .timeline .timeline_ul .timeline_li {
+          left: 20px;
+        }
+    
+        .timeline .timeline_ul .timeline_li .content{
+            width: calc(100vw - 91px);
+        }
+    
+        .timeline .timeline_ul .timeline_li:nth-child(even) .content{
+            left: 45px;
+            border-width: 10px 20px 10px 0px;
+            border-color: transparent #20e3bc transparent transparent;
+        }
+    
+        .timeline .timeline_ul .timeline_li:nth-child(even) .content::before {
+            left: -25px;
+            border-width: 10px 20px 10px 0px;
+            border-color: transparent #20e3bc transparent transparent;
+        }
+
+    }
+}
+
+</style>
+</head>
+<body>
+    <section class="timing_event" id="eventTime">
+        <div class="dept_desc">
+            <h3 class="h3_element">
+               <span class="of">D</span>epartment <span class="of">O</span>f
+            </h3>
+            <h4 class="IT" id="IT">
+                <span class="it">I</span>nformation 
+                <span class="it">T</span>echnology
+            </h4>
+            <h5 class="presents">
+                <div class="pres">
+                    <span class="p">P</span>resents
+                </div>
+                <div class="curr_eventName">
+                    <span class="p">T</span>ech 
+                    <span class="p">F</span>est
+                </div>
+            </h5>
+            <div class="on_date">
+                <h1 class="date">
+                    <span class="o">O</span>n
+                    <span id="eventDate"> [ 11 / 08 / 2023 ]</span>
+                </h1>
+            </div>
+        </div>
+        <div class="countDown_box">
+            <div class="time">
+                 <div class="circle" style="--clr:#ffffff;">
+                    <div class="dots day_dot"></div>
+                    <svg>
+                        <circle cx="50" cy="50" r="50"></circle>
+                        <circle cx="50" cy="50" r="50" id="dd"></circle>
+                    </svg>
+                    <div class="days dhms" id="days">00 <br>
+                        <span class="dhms_n">days</span>
+                    </div>
+                </div>
+
+                <div class="circle" style="--clr:#ff2972;">
+                    <div class="dots hrs_dot"></div>
+                    <svg>
+                        <circle cx="50" cy="50" r="50"></circle>
+                        <circle cx="50" cy="50" r="50" id="hh"></circle>
+                    </svg>
+                    <div class="hours dhms" id="hours">00 <br>
+                        <span class="dhms_n">hourss</span>
+                    </div>
+                </div>
+
+                <div class="circle" style="--clr:#fee800;">
+                    <div class="dots min_dot"></div>
+                    <svg>
+                        <circle cx="50" cy="50" r="50"></circle>
+                        <circle cx="50" cy="50" r="50" id="mm"></circle>
+                    </svg>
+                    <div class="minutes dhms" id="minutes">00 <br>
+                        <span class="dhms_n">minutes</span>
+                    </div>
+                </div>
+
+                <div class="circle" style="--clr:#04fc43;">
+                    <div class="dots sec_dot"></div>
+                    <svg>
+                        <circle cx="50" cy="50" r="50"></circle>
+                        <circle cx="50" cy="50" r="50"id='ss'></circle>
+                    </svg>
+                    <div class="seconds dhms" id="seconds">00 <br>
+                         <span class="dhms_n">seconds</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <script>
+        let days =document.querySelector('.days');
+let hours = document.querySelector('.hours');
+let minutes = document.querySelector('.minutes');
+let seconds = document.querySelector('.seconds')
+
+let dd = document.getElementById('dd');
+let hh = document.getElementById('hh');
+let mm = document.getElementById('mm');
+let ss = document.getElementById('ss');
+
+let day_dot = document.querySelector('.day_dot');
+let hrs_dot = document.querySelector('.hrs_dot');
+let min_dot = document.querySelector('.min_dot');
+let sec_dot = document.querySelector('.sec_dot');
+
+let endDate = '08/11/2023 00:00:00';
+//             mm/dd/yyyy 00.00.00//
+
+let x = setInterval(function(){
+    let now = new Date(endDate).getTime();
+    let countDown = new Date().getTime();
+    let distance = now - countDown;
+
+    let d = Math.floor(distance/(1000 * 60 * 60 * 24));
+    let h = Math.floor((distance%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
+    let m = Math.floor((distance%(1000 * 60 * 60 ))/(1000 * 60));
+    let s = Math.floor((distance%(1000 * 60  ))/(1000));
+
+    days.innerHTML = d + '<br><span class="dhms_n">Days</span>';
+    hours.innerHTML = h + '<br><span class="dhms_n">hours</span>';
+    minutes.innerHTML = m + '<br><span class="dhms_n">minutes</span>';
+    seconds.innerHTML = s + '<br><span class="dhms_n">seconds</span>';
+
+    dd.style.strokeDashoffset = 305- (305* d) / 365;
+    hh.style.strokeDashoffset = 305- (305* h) / 24;
+    mm.style.strokeDashoffset = 305- (305* m) / 60;
+    ss.style.strokeDashoffset = 305- (305* s) / 60;
+
+    day_dot.style.transform = `rotateZ(${d * 0.986}deg)`;
+    hrs_dot.style.transform = `rotateZ(${h * 15}deg)`;
+    min_dot.style.transform = `rotateZ(${m * 6}deg)`;
+    sec_dot.style.transform = `rotateZ(${s * 6}deg)`;
+
+    if (distance <0) {
+        alert('Finished...!')
+    }
+
+});
+
+    </script>
+    <section class="timeline">
+   
+        <ul class="timeline_ul">
+            <li class="timeline_li">
+                <div class="content">
+                    <img src="/img/tech/build-code.png" class='img'/> 
+                    <h3 class = "event_title">Event 1</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste id nam asperiores, consequuntur 
+                        dicta obcaecati porro dolore fugiat ipsam quisquam perspiciatis ipsum sequi odit, natus quibusdam 
+                        possimus ullam. Neque, earum?
+                </div>
+            </li>
+    
+            <li class="timeline_li">
+                <div class="content">
+                    <img src="/img/tech/hack.png" class='img'/>
+                    <h3 class = "event_title">Event 2</h3>
+                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste id nam asperiores, consequuntur 
+                      dicta obcaecati porro dolore fugiat ipsam quisquam perspiciatis ipsum sequi odit, natus quibusdam 
+                      possimus ullam. Neque, earum?
+                    </p>
+                </div>
+            </li>
+    
+            <li class="timeline_li">
+                <div class="content">
+                    <img src="/img/tech/tech-quize.png" class='img'/>
+                    <h3 class = "event_title">Event 3</h3>
+                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste id nam asperiores, consequuntur 
+                      dicta obcaecati porro dolore fugiat ipsam quisquam perspiciatis ipsum sequi odit, natus quibusdam 
+                      possimus ullam. Neque, earum?
+                    </p>
+                </div>
+            </li>
+    
+            <li class="timeline_li">
+                <div class="content">
+                    <img src="/img/tech/typewritting.png" class='img'/> 
+                    <h3 class = "event_title">Event 4</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste id nam asperiores, consequuntur 
+                      dicta obcaecati porro dolore fugiat ipsam quisquam perspiciatis ipsum sequi odit, natus quibusdam 
+                      possimus ullam. Neque, earum?
+                    </p>
+                </div>
+            </li>
+    
+            <li class="timeline_li">
+                <div class="content">
+                    <img src="/img/non-tech/bottlegame.png" class='img'/> 
+                    <h3 class = "event_title">Event 5</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste id nam asperiores, consequuntur 
+                      dicta obcaecati porro dolore fugiat ipsam quisquam perspiciatis ipsum sequi odit, natus quibusdam 
+                      possimus ullam. Neque, earum?
+                    </p>
+                </div>
+            </li>
+    
+            <li class="timeline_li">
+                <div class="content">
+                    <img src="/img/non-tech/cube.png" class='img'/> 
+                    <h3 class = "event_title">Event 6</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste id nam asperiores, consequuntur 
+                      dicta obcaecati porro dolore fugiat ipsam quisquam perspiciatis ipsum sequi odit, natus quibusdam 
+                      possimus ullam. Neque, earum?
+                    </p>
+                </div>
+            </li>
+    
+            <li class="timeline_li">
+                <div class="content">
+                    <img src="/img/non-tech/photography.png" class='img'/>
+                    <h3 class = "event_title">Event 7</h3>
+                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste id nam asperiores, consequuntur 
+                      dicta obcaecati porro dolore fugiat ipsam quisquam perspiciatis ipsum sequi odit, natus quibusdam 
+                      possimus ullam. Neque, earum?
+                    </p>
+                </div>
+            </li>
+    
+            <li class="timeline_li">
+                <div class="content">
+                    <img src="/img/non-tech/storywriting.png" class='img'/> 
+                    <h3 class = "event_title">Event 8</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste id nam asperiores, consequuntur 
+                      dicta obcaecati porro dolore fugiat ipsam quisquam perspiciatis ipsum sequi odit, natus quibusdam 
+                      possimus ullam. Neque, earum?
+                    </p>
+                </div>
+            </li>
+    
+            <li class="timeline_li"></li>
+        </ul>
+
+</section>
+<script>
+    (function(){
+    'use strict';
+    let item = document.querySelectorAll('.timeline_ul .timeline_li');
+    function isElementInViewport(el){
+        var rect = el.getBoundingClientRect();
+        return(
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= 
+            (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <=
+            (window.innerWidth || document.documentElement.clientWidth)
+        );
+        
+    }
+
+    function callBackFunction(){
+        for(let i = 0; i < item.length; i++){
+            if (isElementInViewport(item[i])) {
+               
+                item[i].classList.add('in_view');
+                
+            }
+            else{
+                
+                item[i].classList.remove('in_view');
+                
+            }
+        }
+    }
+
+    window.addEventListener('load',callBackFunction);
+    window.addEventListener('resize',callBackFunction);
+    window.addEventListener('scroll',callBackFunction);
+
+})();
+</script>
+</body>
+</html>
