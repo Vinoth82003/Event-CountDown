@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event time</title>
+    <link rel="stylesheet" href="/css/timeline.css">
+</head>
+<body>
+    <section class="timing_event" id="eventTime">
+        <div class="dept_desc">
+            <h3 class="h3_element">
+               <span class="of">D</span>epartment <span class="of">O</span>f
+            </h3>
+            <h4 class="IT" id="IT">
+                <span class="it">I</span>nformation 
+                <span class="it">T</span>echnology
+            </h4>
+            <h5 class="presents">
+                <div class="pres">
+                    <span class="p">P</span>resents
+                </div>
+                <div class="curr_eventName">
+                    <span class="p">T</span>ech 
+                    <span class="p">F</span>est
+                </div>
+            </h5>
+            <div class="on_date">
+                <h1 class="date">
+                    <span class="o">O</span>n
+                    <span id="eventDate"> [ 11 / 08 / 2023 ]</span>
+                </h1>
+            </div>
+        </div>
+        <div class="countDown_box">
+            <div class="time">
+                 <div class="circle" style="--clr:#ffffff;">
+                    <div class="dots day_dot"></div>
+                    <svg>
+                        <circle cx="50" cy="50" r="50"></circle>
+                        <circle cx="50" cy="50" r="50" id="dd"></circle>
+                    </svg>
+                    <div class="days dhms" id="days">00 <br>
+                        <span class="dhms_n">days</span>
+                    </div>
+                </div>
+
+                <div class="circle" style="--clr:#ff2972;">
+                    <div class="dots hrs_dot"></div>
+                    <svg>
+                        <circle cx="50" cy="50" r="50"></circle>
+                        <circle cx="50" cy="50" r="50" id="hh"></circle>
+                    </svg>
+                    <div class="hours dhms" id="hours">00 <br>
+                        <span class="dhms_n">hourss</span>
+                    </div>
+                </div>
+
+                <div class="circle" style="--clr:#fee800;">
+                    <div class="dots min_dot"></div>
+                    <svg>
+                        <circle cx="50" cy="50" r="50"></circle>
+                        <circle cx="50" cy="50" r="50" id="mm"></circle>
+                    </svg>
+                    <div class="minutes dhms" id="minutes">00 <br>
+                        <span class="dhms_n">minutes</span>
+                    </div>
+                </div>
+
+                <div class="circle" style="--clr:#04fc43;">
+                    <div class="dots sec_dot"></div>
+                    <svg>
+                        <circle cx="50" cy="50" r="50"></circle>
+                        <circle cx="50" cy="50" r="50"id='ss'></circle>
+                    </svg>
+                    <div class="seconds dhms" id="seconds">00 <br>
+                         <span class="dhms_n">seconds</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="timeline">
+   
+        <ul class="timeline_ul">
+            <li class="timeline_li">
+                <div class="content">
+                    <img src="/img/tech/build-code.png" class='img'/> 
+                    <h3 class = "event_title">Event 1</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste id nam asperiores, consequuntur 
+                        dicta obcaecati porro dolore fugiat ipsam quisquam perspiciatis ipsum sequi odit, natus quibusdam 
+                        possimus ullam. Neque, earum?
+                </div>
+            </li>
+    
+            <li class="timeline_li">
+                <div class="content">
+                    <img src="/img/tech/hack.png" class='img'/>
+                    <h3 class = "event_title">Event 2</h3>
+                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste id nam asperiores, consequuntur 
+                      dicta obcaecati porro dolore fugiat ipsam quisquam perspiciatis ipsum sequi odit, natus quibusdam 
+                      possimus ullam. Neque, earum?
+                    </p>
+                </div>
+            </li>
+    
+            <li class="timeline_li">
+                <div class="content">
+                    <img src="/img/tech/tech-quize.png" class='img'/>
+                    <h3 class = "event_title">Event 3</h3>
+                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste id nam asperiores, consequuntur 
+                      dicta obcaecati porro dolore fugiat ipsam quisquam perspiciatis ipsum sequi odit, natus quibusdam 
+                      possimus ullam. Neque, earum?
+                    </p>
+                </div>
+            </li>
+    
+            <li class="timeline_li">
+                <div class="content">
+                    <img src="/img/tech/typewritting.png" class='img'/> 
+                    <h3 class = "event_title">Event 4</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste id nam asperiores, consequuntur 
+                      dicta obcaecati porro dolore fugiat ipsam quisquam perspiciatis ipsum sequi odit, natus quibusdam 
+                      possimus ullam. Neque, earum?
+                    </p>
+                </div>
+            </li>
+    
+            <li class="timeline_li">
+                <div class="content">
+                    <img src="/img/non-tech/bottlegame.png" class='img'/> 
+                    <h3 class = "event_title">Event 5</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste id nam asperiores, consequuntur 
+                      dicta obcaecati porro dolore fugiat ipsam quisquam perspiciatis ipsum sequi odit, natus quibusdam 
+                      possimus ullam. Neque, earum?
+                    </p>
+                </div>
+            </li>
+    
+            <li class="timeline_li">
+                <div class="content">
+                    <img src="/img/non-tech/cube.png" class='img'/> 
+                    <h3 class = "event_title">Event 6</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste id nam asperiores, consequuntur 
+                      dicta obcaecati porro dolore fugiat ipsam quisquam perspiciatis ipsum sequi odit, natus quibusdam 
+                      possimus ullam. Neque, earum?
+                    </p>
+                </div>
+            </li>
+    
+            <li class="timeline_li">
+                <div class="content">
+                    <img src="/img/non-tech/photography.png" class='img'/>
+                    <h3 class = "event_title">Event 7</h3>
+                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste id nam asperiores, consequuntur 
+                      dicta obcaecati porro dolore fugiat ipsam quisquam perspiciatis ipsum sequi odit, natus quibusdam 
+                      possimus ullam. Neque, earum?
+                    </p>
+                </div>
+            </li>
+    
+            <li class="timeline_li">
+                <div class="content">
+                    <img src="/img/non-tech/storywriting.png" class='img'/> 
+                    <h3 class = "event_title">Event 8</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste id nam asperiores, consequuntur 
+                      dicta obcaecati porro dolore fugiat ipsam quisquam perspiciatis ipsum sequi odit, natus quibusdam 
+                      possimus ullam. Neque, earum?
+                    </p>
+                </div>
+            </li>
+    
+            <li class="timeline_li"></li>
+        </ul>
+
+</section>
+<script src="/js/timeline.js"></script>
+</body>
+</html>
