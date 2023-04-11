@@ -76,6 +76,7 @@ alert('Finished...!')
                 item[i].classList.remove('in_view');
         }
     }
+    }
 
     window.addEventListener('load',callBackFunction);
     window.addEventListener('resize',callBackFunction);
